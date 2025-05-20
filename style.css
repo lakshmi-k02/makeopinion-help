@@ -1,113 +1,162 @@
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #222;
-    background-color: #fff;
-  }
-  
-  .container {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .sidebar {
-    width: 220px;
-    background-color: #f8f9fa;
-    border-right: 1px solid #ddd;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .sidebar h2 {
-    margin-top: 0;
-    font-size: 20px;
-  }
-  
-  .sidebar nav ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar nav li {
-    padding: 8px 0;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .sidebar nav .section-title {
-    margin-top: 15px;
-    font-weight: bold;
-    font-size: 13px;
-    color: #666;
-  }
-  
-  .sidebar nav .active {
-    background-color: #e9ecef;
-    border-radius: 4px;
-    padding-left: 10px;
-    font-weight: bold;
-  }
-  
-  .support-btn {
-    margin-top: 20px;
-    padding: 8px;
-    width: 100%;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .content {
-    flex: 1;
-    padding: 40px;
-    overflow-y: auto;
-  }
-  
-  h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .subtitle {
-    color: #666;
-    margin-bottom: 30px;
-  }
-  
-  section {
-    margin-bottom: 40px;
-  }
-  
-  h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  ul {
-    padding-left: 20px;
-  }
-  
-  ul li {
-    margin-bottom: 6px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
-  
-  table th,
-  table td {
-    border: 1px solid #ccc;
-    padding: 8px 12px;
-    text-align: left;
-  }
-  
-  table th {
-    background-color: #f1f1f1;
-    font-weight: bold;
-  }
-  
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  background-color: #fff;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #f8f9fa;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.sidebar nav ul,
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar nav li,
+.sub-topic,
+.sidebar-item {
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 8px;
+  color: #333;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.sidebar nav .section-title {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 13px;
+  color: #666;
+}
+
+.sidebar nav .active,
+.sub-topic.active {
+  background-color: #e6e6e6;
+  font-weight: 600;
+}
+
+.sub-topic:hover,
+.sidebar-item:hover {
+  background-color: #f0f0f0;
+  color: #fff;
+}
+
+.support-btn {
+  margin-top: 20px;
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 6px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table th,
+table td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+.main-topic {
+  font-size: 1rem;
+  margin-top: 1rem;
+  color: #333;
+}
+
+.description {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.5rem 0 0.5rem 1rem;
+}
+
+.sub-section {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+
+.sidebar-header {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: #999;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.sidebar-item {
+  margin-left: 1rem;
+  font-size: 0.95rem;
+  padding: 0.2rem 0;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* spacing between icon and label */
+}
