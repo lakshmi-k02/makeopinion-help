@@ -229,18 +229,33 @@ li {
 ul li {
   margin-bottom: 6px;
 }
-/* Add to styles.css */
-.prose ul {
-  list-style-type: disc !important;
-  padding-left: 1.5rem !important;
-}
 
-.prose ol {
-  list-style-type: decimal !important;
+/* Update your styles.css */
+.prose ul {
+  list-style: none !important;
   padding-left: 1.5rem !important;
 }
 
 .prose li {
-  margin-bottom: 0.5rem;
-  padding-left: 0.25rem;
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 6px;
+  height: 6px;
+  background-color: #3B82F6; /* Use your brand color */
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+/* Optional: Add hover animation */
+.prose li:hover::before {
+  transform: translateY(-50%) scale(1.2);
+  transition: all 0.2s ease;
 }
