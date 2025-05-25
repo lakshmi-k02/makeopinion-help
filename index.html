@@ -2,136 +2,299 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Soft Launch Docs</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Getting Started - Ipsos Sample API</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
-  <div class="container">
-    <aside class="sidebar">
-      <h2>Tutorial</h2>
-      <nav>
-        <ul>
-          <li class="section-title">📊 Dashboard</li>
-          <li class="sidebar-item">Live Projects</li>
-          <li class="sidebar-item">Performance Metrics</li>
-          <li class="sidebar-item">System Notifications</li>
+<header class="header-bg sticky top-0 z-50">
+    <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <a href="#" class="flex items-center space-x-2">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="text-blue-600">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16C0 7.16344 7.16344 0 16 0ZM14.6667 10.6667V8H17.3333V10.6667H14.6667ZM14.6667 24V13.3333H17.3333V24H14.6667Z"
+                        fill="currentColor" />
+                </svg>
+                <!-- <span class="text-xl font-semibold text-gray-800">Tutorial</span> -->
+                <span class="text-2xl font-bold tracking-tight text-blue-700">Tutorial</span>
 
-          <li class="section-title">👥 Audience Management</li>
-          <li class="sidebar-item">Create Audience</li>
-          <li class="sidebar-item">Edit Audience Properties</li>
-          <li class="sidebar-item">Audience Detail View</li>
-          <li class="sidebar-item">Manage Audience List</li>
-          <li class="sidebar-item active">Soft Launch</li>
-          <li class="sidebar-item">Custom Deadline</li>
-          <li class="sidebar-item">Scheduled Audience</li>
-          <li class="sidebar-item">Completion Scheduler</li>
-          <li class="sidebar-item">Standard Screening Questions</li>
-          <li class="sidebar-item">Custom Screening Questions</li>
-          <li class="sidebar-item">Audience Eliminations</li>
-          <li class="sidebar-item">Audience Recontacts</li>
+        </div>
 
-          <li class="section-title">📏 Quotas</li>
-          <li class="sidebar-item">National Representative Quotas</li>
-          <li class="sidebar-item">Enable Quotas</li>
-          <li class="sidebar-item">Enable/Disable Quota Answers</li>
-        </ul>
-      </nav>
+        <div class="flex-1 max-w-xl hidden md:flex justify-center">
+            <div class="relative w-full">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fas fa-search text-gray-400"></i>
+                </div>
+                <input type="search" placeholder="Search docs..."
+                    class="search-input block w-full pl-10 pr-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+        </div>
 
-      <button class="support-btn">Contact Support</button>
+        <div class="flex items-center space-x-4">
+            <nav class="hidden lg:flex space-x-2">
+                <a href="#" class="nav-link">API Reference</a>
+                <a href="#" class="nav-link">Changelog</a>
+                <a href="#" class="nav-link">Support</a>
+            </nav>
+            <button class="btn-primary hidden sm:block">Log In</button>
+            <button id="mobileMenuButton" class="lg:hidden text-gray-500 hover:text-gray-700"> <i
+                    class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<div class="flex-1 container mx-auto px-4 flex flex-col md:flex-row mt-4">
+
+    <aside id="leftSidebar"
+        class="w-full md:w-64 lg:w-72 flex-shrink-0 md:sticky md:top-20 md:self-start md:max-h-[calc(100vh-5rem)] overflow-y-auto pr-4 mb-8 md:mb-0 transition-transform duration-300 ease-in-out md:translate-x-0 -translate-x-full fixed md:relative inset-y-0 left-0 bg-gray-800 md:bg-transparent p-4 md:p-0 z-40">
+        <button id="closeSidebarButton" class="md:hidden absolute top-4 right-4 text-gray-500 hover:text-gray-700"> <i
+                class="fas fa-times text-2xl"></i>
+        </button>
+        <input type="search" placeholder="Filter"
+            class="search-input block w-full px-3 py-2 rounded-md mb-4 text-sm mt-12 md:mt-0">
+
+        <div class="space-y-1">
+            <div>
+                <button class="sidebar-section-header w-full text-left" data-target="getting-started-original-content">
+                    <span>Dashboard</span>
+                    <i class="fas fa-chevron-right icon"></i>
+                </button>
+                <div id="getting-started-original-content" class="sidebar-section-content">
+                    <a href="#" class="sidebar-link active">Live Projects</a>
+                    <a href="#" class="sidebar-link">Performance Metrics</a>
+                    <a href="#" class="sidebar-link">System Notifications</a>
+                </div>
+            </div>
+            <div>
+                <button class="sidebar-section-header open w-full text-left" data-target="audience-management-content">
+                    <span>Audience Management</span>
+                    <i class="fas fa-chevron-right icon"></i>
+                </button>
+                <div id="audience-management-content" class="sidebar-section-content open">
+                    <button class="sidebar-subsection-header open w-full text-left"
+                        data-target="creating-managing-audiences-content">
+                        <span>Creating & Managing Audiences</span>
+                        <i class="fas fa-chevron-right icon"></i>
+                    </button>
+                    <div id="creating-managing-audiences-content" class="sidebar-subsection-content open">
+                        <a href="#" class="sidebar-link">Create an Audience</a>
+                        <a href="#" class="sidebar-link">Edit Audience Properties</a>
+                        <a href="#" class="sidebar-link">Audience Detail View</a>
+                        <a href="#" class="sidebar-link">Navigating the Audience List</a>
+                    </div>
+
+                    <button class="sidebar-subsection-header w-full text-left"
+                        data-target="scheduling-features-content">
+                        <span>Audience Scheduling Features</span>
+                        <i class="fas fa-chevron-right icon"></i>
+                    </button>
+                    <div id="scheduling-features-content" class="sidebar-subsection-content">
+                        <a href="#" class="sidebar-link active">Soft Launch</a>
+                        <a href="#" class="sidebar-link">Custom Deadline</a>
+                        <a href="#" class="sidebar-link">Scheduled Audience</a>
+                        <a href="#" class="sidebar-link">Completion Scheduler</a>
+                    </div>
+
+                    <button class="sidebar-subsection-header w-full text-left" data-target="targeting-tools-content">
+                        <span>Audience Targeting Tools</span>
+                        <i class="fas fa-chevron-right icon"></i>
+                    </button>
+                    <div id="targeting-tools-content" class="sidebar-subsection-content">
+                        <button class="sidebar-subsection-header w-full text-left"
+                            data-target="screening-questions-content" style="padding-left: 2rem; font-size: 0.82rem;">
+                            <span>Screening Questions</span>
+                            <i class="fas fa-chevron-right icon"></i>
+                        </button>
+                        <div id="screening-questions-content" class="sidebar-subsection-content"
+                            style="padding-left: 1.5rem;">
+                            <a href="#" class="sidebar-link" style="padding-left: 2.5rem;">Standard Screening
+                                Questions</a>
+                            <a href="#" class="sidebar-link" style="padding-left: 2.5rem;">Custom Screening
+                                Questions</a>
+                        </div>
+                        <a href="#" class="sidebar-link">Audience Eliminations</a>
+                        <a href="#" class="sidebar-link">Audience Recontacts</a>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button class="sidebar-section-header w-full text-left" data-target="quotas-content">
+                    <span>Quotas</span>
+                    <i class="fas fa-chevron-right icon"></i>
+                </button>
+                <div id="quotas-content" class="sidebar-section-content">
+                    <a href="#" class="sidebar-link">National Representative Quotas</a>
+                    <a href="#" class="sidebar-link">Enable Quotas</a>
+                    <a href="#" class="sidebar-link">Enable / Disable Quota Answers</a>
+                </div>
+            </div>
+
+            <div>
+                <button class="sidebar-section-header w-full text-left" data-target="launch-content">
+                    <span>Launch</span>
+                    <i class="fas fa-chevron-right icon"></i>
+                </button>
+                <div id="launch-content" class="sidebar-section-content">
+                    <a href="#" class="sidebar-link">Launch Overview</a>
+                </div>
+            </div>
+
+            <div>
+                <button class="sidebar-section-header w-full text-left" data-target="survey-content">
+                    <span>Survey</span>
+                    <i class="fas fa-chevron-right icon"></i>
+                </button>
+                <div id="survey-content" class="sidebar-section-content">
+                    <a href="#" class="sidebar-link">Survey Details</a>
+                </div>
+            </div>
+
+        </div>
     </aside>
 
-    <main class="content">
-      <h1>Soft Launch</h1>
-      <p class="subtitle">Limit project exposure by sending to a small group first before going live fully.</p>
+    <main
+        class="flex-1 min-w-0 content-bg p-6 sm:p-8 rounded-lg shadow-lg prose prose-sm sm:prose lg:prose-lg max-w-none">
+        <div class="mb-6">
+            <span class="text-sm text-gray-500">Docs / Soft launch</span>
+            <h1 class="text-3xl sm:text-4xl font-bold mt-1">Soft Launch</h1>
+        </div>
 
-      <section>
-        <h2>What It Does</h2>
-        <p>Lets you test a project with a limited number of respondents to catch setup issues early.</p>
-      </section>
+        <section id="welcome">
+            <p>Limit project exposure by sending to a small group first before going live fully.</p>
+        </section>
 
-      <section>
-        <h2>How to Enable</h2>
+        <section id="what-is" class="mt-8">
+            <h2 class="text-2xl font-semibold  pb-2 mb-4">What It Does?</h2>
+            <p>Lets you test a project with a limited number of respondents to catch setup issues early.</p>
+        </section>
 
-        <h3>From Create Survey:</h3>
-        <ul>
-          <li>Click <strong>Start a Project</strong> in the upper-right corner of your account.</li>
-          <li>Choose one of the options: <em>Get Survey Participants</em>, <em>Start a new survey</em>, or <em>Select
-              Survey Templates</em>.</li>
-        </ul>
+        <section id="api-key" class="mt-8">
+            <h2 class="text-2xl font-semibold pb-2 mb-4">How to Enable?</h2>
+            <h3>From Create Survey:</h3>
+            <ul>
+                <li>Click <strong>Start a Project</strong> in the upper-right corner of your account.</li>
+                <li>Choose one of the options: <em>Get Survey Participants</em>, <em>Start a new survey</em>, or
+                    <em>Select
+                        Survey Templates</em>.
+                </li>
+            </ul>
 
-        <h3>From Edit Survey:</h3>
-        <ul>
-          <li><strong>Access the Project:</strong> Navigate to the project where you want to enable the soft launch
-            feature.
-            
-            <!-- <img src="gifs/soft launch - Click project.gif" alt="Access the Project GIF"
+            <h3>From Edit Survey:</h3>
+            <ul>
+                <li><strong>Access the Project:</strong> Navigate to the project where you want to enable the soft
+                    launch
+                    feature.
+
+                    <!-- <img src="gifs/soft launch - Click project.gif" alt="Access the Project GIF"
               style="margin-top: 0px; max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 4px;"> -->
-          </li>
-          <li><strong>Select the Audience:</strong> Open the audience you want to configure for the soft launch.</li>
-          <li><strong>Edit Audience Settings:</strong>
-            <ul>
-              <li>Go to <strong>Edit Audience</strong>.</li>
-              <li>Navigate to the <strong>Scheduling</strong> tab.</li>
+                </li>
+                <li><strong>Select the Audience:</strong> Open the audience you want to configure for the soft launch.
+                </li>
+                <li><strong>Edit Audience Settings:</strong>
+                    <ul>
+                        <li>Go to <strong>Edit Audience</strong>.</li>
+                        <li>Navigate to the <strong>Scheduling</strong> tab.</li>
+                    </ul>
+                </li>
+                <li><strong>Enable Soft Launch:</strong>
+                    <ul>
+                        <li>Locate the <strong>"Enable Soft Launch"</strong> option and activate it.</li>
+                        <li>Choose the soft launch type (e.g., clicks or completes).</li>
+                        <li>Specify the number of clicks or completes required.</li>
+                    </ul>
+                    <img src="images\soft_launch.png" alt="Access the Project Image"
+                        style="margin-top: 10px; max-width: 60%; height:60%; border: 1px solid #ccc; border-radius: 4px;">
+                </li>
+                <li><strong>Save Changes:</strong> Click <strong>Save</strong> to apply your settings.</li>
+                <li>Once saved, the soft launch configuration is active.</li>
             </ul>
-          </li>
-          <li><strong>Enable Soft Launch:</strong>
-            <ul>
-              <li>Locate the <strong>"Enable Soft Launch"</strong> option and activate it.</li>
-              <li>Choose the soft launch type (e.g., clicks or completes).</li>
-              <li>Specify the number of clicks or completes required.</li>
-            </ul>
-            <img src="images/soft_launch.png" alt="Access the Project Image"
-              style="margin-top: 10px; max-width: 60%; height:60%; border: 1px solid #ccc; border-radius: 4px;">
-          </li>
-          <li><strong>Save Changes:</strong> Click <strong>Save</strong> to apply your settings.</li>
-          <li>Once saved, the soft launch configuration is active.</li>
-        </ul>
-      </section>
-      <section>
-        <h2>Fields</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Field</th>
-              <th>Meaning</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Enabled</td>
-              <td>Turns Soft Launch on/off</td>
-              <td>Toggle switch</td>
-            </tr>
-            <tr>
-              <td>Type</td>
-              <td>Whether to limit by <strong>clicks</strong> or <strong>completes</strong></td>
-              <td>Default = Completes</td>
-            </tr>
-            <tr>
-              <td>Limit</td>
-              <td>Max number allowed before pause</td>
-              <td>Required when enabled</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+        </section>
 
-      <section>
-        <h2>How It Behaves</h2>
-        <ul>
-          <li>Project <strong>pauses automatically</strong> when limit is reached.</li>
-          <li>Limit applies based on selected <strong>type</strong> (clicks or completes).</li>
-          <li>Sends <strong>email + in-platform</strong> notification when soft launch is complete.</li>
-          <li>User must <strong>manually resume</strong> for full launch.</li>
-          <li>Can be used once per project.</li>
-        </ul>
-      </section>
+        <section id="making-requests" class="mt-8">
+            <h2 class="text-2xl font-semibold pb-2 mb-4">Fields</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Meaning</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Enabled</td>
+                        <td>Turns Soft Launch on/off</td>
+                        <td>Toggle switch</td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>Whether to limit by <strong>clicks</strong> or <strong>completes</strong></td>
+                        <td>Default = Completes</td>
+                    </tr>
+                    <tr>
+                        <td>Limit</td>
+                        <td>Max number allowed before pause</td>
+                        <td>Required when enabled</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="next-steps" class="mt-8">
+            <h2 class="text-2xl font-semibold border-b border-gray-300 pb-2 mb-4">How It Behaves</h2>
+            
+            <ul class="space-y-2">
+                <li>Project <strong>pauses automatically</strong> when limit is reached.</li>
+                <li>Limit applies based on selected <strong>type</strong> (clicks or completes).</li>
+                <li>Sends <strong>email + in-platform</strong> notification when soft launch is complete.</li>
+                <li>User must <strong>manually resume</strong> for full launch.</li>
+                <li>Can be used once per project.</li>
+            </ul>
+        </section>
+
+        <div class="mt-12 pt-6 border-t border-gray-300 flex flex-col sm:flex-row justify-between items-center"> <button
+                class="text-sm text-blue-600 hover:text-blue-500 flex items-center space-x-2 mb-4 sm:mb-0"> <i
+                    class="fas fa-pencil-alt"></i>
+                <span>Suggest Edits</span>
+            </button>
+            <a href="#" class="btn-primary text-sm">
+                Next: Authentication <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
     </main>
-  </div>
+
+    <aside class="hidden lg:block w-64 flex-shrink-0 pl-8">
+        <div class="sticky top-20">
+            <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">On this page</h3>
+            <nav>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#welcome" class="block text-gray-500 hover:text-gray-800">Welcome!</a></li>
+                    <li><a href="#what-is" class="block text-gray-500 hover:text-gray-800">What is Ipsos Sample API?</a>
+                    </li>
+                    <li><a href="#api-key" class="block text-gray-500 hover:text-gray-800">Getting Your API Key</a></li>
+                    <li><a href="#making-requests" class="block text-gray-500 hover:text-gray-800">Making Your First
+                            Request</a></li>
+                    <li><a href="#next-steps" class="block text-gray-500 hover:text-gray-800">Next Steps</a></li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+</div>
+
+<footer class="mt-auto py-8 text-center border-t border-gray-300">
+    <p class="text-sm text-gray-500">&copy; 2024 Ipsos. All rights reserved. (Clone for demonstration)</p>
+</footer>
+
 </body>
-<!-- updated -->
+<script src="script.js"></script>
+</body>
+
 </html>
